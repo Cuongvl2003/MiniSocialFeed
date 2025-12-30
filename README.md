@@ -10,7 +10,7 @@ Push model (fanout on write): Khi tạo post, push postId vào feed của chính
 Write post sẽ phải thực hiện 1 triệu tác vụ cho tổng các followr , dẫn đến thời gian xử lý dài, có thể gây timeout, overload Redis, và làm chậm hệ thống.
 
 ## Nếu feed quá lớn thì xử lý thế nào?
-Sử dụng ZREMRANGEBYRANK để trim ZSet, chỉ giữ N posts mới nhất (ví dụ: 100 như trong code). Điều này giữ kích thước feed hợp lý, tránh memory bloat, và tập trung vào nội dung gần đây nhất.
+Sử dụng ZREMRANGEBYRANK để trim ZSet, chỉ giữ khoảng 200 posts mới nhất. Điều này giữ kích thước feed hợp lý, tránh memory bloat, và tập trung vào các post gần đây nhất.
 
 ## Giải thích lý do chọn structure của từng thành phần:
 
