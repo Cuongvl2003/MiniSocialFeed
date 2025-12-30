@@ -4,7 +4,9 @@
 Redis là in-memory data store nhanh, hỗ trợ các cấu trúc dữ liệu như ZSet (sorted set) lý tưởng cho việc lưu trữ và truy vấn feed theo thứ tự thời gian giảm dần. Với lượng đọc nhiều hơn ghi, Redis đảm bảo hiệu suất cao cho việc lấy feed cũng như việc thêm post
 
 ## Feed được build theo hướng:
-Push model (fanout on write): Khi tạo post, push postId vào feed của chính user và tất cả followers ngay lập tức. Ưu điểm: read feed nhanh. Nhược điểm: write có thể chậm nếu user có nhiều followers.
+Push model (fanout on write): Khi tạo post, push postId vào feed của chính user và tất cả followers ngay lập tức. 
+Ưu điểm: read feed nhanh. 
+Nhược điểm: write có thể chậm nếu user có nhiều followers.
 
 ## Nếu user có 1 triệu follower, cách hiện tại có vấn đề gì?
 Write post sẽ phải thực hiện 1 triệu tác vụ cho tổng các followr , dẫn đến thời gian xử lý dài, có thể gây timeout, overload Redis, và làm chậm hệ thống.
