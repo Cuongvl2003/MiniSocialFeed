@@ -31,4 +31,4 @@ Khi tạo post mới, ta có thể đẩy postId vào feed của chính user và
 ### Cache user feed: 
 Lý do tương tự như feed của user và ZSet có thể giới hạn kích thước feed.
 
-# API được document trong Swagger có thể vào http://localhost:8080/swagger-ui/index.html#/ khi chạy 
+## API được document trong Swagger có thể vào http://localhost:8080/swagger-ui/index.html#/ khi chạy 
